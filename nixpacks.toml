@@ -8,12 +8,11 @@ cmds = ['composer install --no-dev --optimize-autoloader']
 cmds = [
   'php artisan config:cache',
   'php artisan route:cache',
-  'php artisan view:cache',
-  'php artisan migrate --force'
+  'php artisan view:cache'
 ]
 
 [start]
-cmd = 'php artisan serve --host=0.0.0.0 --port=$PORT'
+cmd = 'bash -c "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"'
 
 [variables]
 PHP_VERSION = '8.4'
